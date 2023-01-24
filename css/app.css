@@ -179,7 +179,7 @@ main section div {
   margin: 5% auto;
 }
 main section div .current {
-  color: black;
+  color: #ea1e48;
 }
 main section article {
   position: relative;
@@ -190,7 +190,7 @@ main section article {
   padding: 20px;
   margin: 2%;
   min-height: 55vh;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 25px;
 }
 @media only Screen and (max-width: 992px) {
@@ -207,7 +207,7 @@ main section article a {
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  border: 1px solid black;
+  border: 2px solid black;
   position: relative;
   text-align: center;
 }

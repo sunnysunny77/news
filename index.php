@@ -34,7 +34,7 @@
                         $current = "";
                         if (isset($_GET["$type"]) && $_GET["$type"] == $i) {
                             $current = "current";
-                        } else if ($i == 0) {
+                        } else if (!isset($_GET["$type"]) && $i == 0) {
                             $current = "current";
                         } else {
                             $current = "";
