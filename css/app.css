@@ -178,6 +178,9 @@ main section div {
   text-align: center;
   margin: 5% auto;
 }
+main section div .current {
+  color: black;
+}
 main section article {
   position: relative;
   width: 40%;

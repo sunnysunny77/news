@@ -179,6 +179,9 @@ main {
             width: 100%;
             text-align: center;
             margin: 5% auto;
+            .current {
+                color: $c4;
+            }
         }
         article {
             position: relative;

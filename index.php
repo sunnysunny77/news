@@ -31,8 +31,16 @@
             <?php
                function pages($pagedArray, $type) {
                     foreach($pagedArray as $i => $item){
+                        $current = "";
+                        if (isset($_GET["$type"]) && $_GET["$type"] == $i) {
+                            $current = "current";
+                        } else if ($i == 0) {
+                            $current = "current";
+                        } else {
+                            $current = "";
+                        }
                         ?>
-                            <a href="<?php echo $_SERVER['PHP_SELF'] . "?$type=" . $i  ."#$type"?>"><?php echo $i + 1 ?></a>
+                            <a class="<?php echo $current ?>" href="<?php echo $_SERVER['PHP_SELF'] . "?$type=" . $i  ."#$type"?>"><?php echo $i + 1 ?></a>
                         <?php
                     }
                 }
