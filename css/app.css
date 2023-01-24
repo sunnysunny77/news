@@ -212,7 +212,7 @@ main section article a span {
   position: absolute;
   z-index: 999;
   display: block;
-  background-color: rgba(235, 235, 235, 0.5);
+  background-color: rgba(235, 235, 235, 0.75);
   color: black;
   width: 20%;
   border-radius: 15px;
