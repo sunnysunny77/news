@@ -29,113 +29,153 @@
        <section id="breaking">
             <h2>Breaking</h2>
             <?php
-                $rssUrl = "https://thewest.com.au/rss";
-                $rssFeed = simplexml_load_file($rssUrl);
-                $breaking = [];
-              
-                foreach($rssFeed->channel->item as $item){           
-                    $breaking[] = [
-                        $item->title,
-                        $item->description,
-                        $item->link,
-                        $item->children('media', True)->content->attributes()
-                    ];
+               function pages($pagedArray, $type) {
+                    foreach($pagedArray as $i => $item){
+                        ?>
+                            <a href="<?php echo $_SERVER['PHP_SELF'] . "?$type=" . $i  ."#$type"?>"><?php echo $i + 1 ?></a>
+                        <?php
+                    }
                 }
-             
-                $pagedArray = array_chunk($breaking, 10, true);
+                function get($item) {     
+                    ?>
+                    <article>
+                        <h3><?php echo $item[0]; ?></h3>
+                        <p><?php  echo $item[1]; ?></p>  
+                        <a target="_blank" href="<?php echo $item[2]; ?>"><span>Read More</span><img src="<?php  echo $item[3] ?>" alt="<?php echo $item[0]; ?>"/></a>
+                    </article>
+                    <?php
+                }
+                function rss($rssFeed) {
+                    $type = [];
+                    foreach($rssFeed->channel->item as $item){           
+                        $type[] = [
+                            $item->title,
+                            $item->description,
+                            $item->link,
+                            $item->children('media', True)->content->attributes()
+                        ];
+                    } 
+                    return $type;  
+                }
+                $rssUrl = "https://thewest.com.au/rss";
+                $rssFeed = simplexml_load_file($rssUrl);               
+                $pagedArray = array_chunk(rss($rssFeed), 10, true);
                 ?>
                 <div>
                 <?php
-                foreach($pagedArray as $i => $item){
-                    ?>
-                        <a href="<?php echo $_SERVER['PHP_SELF'] . "?breaking=" . $i  ."#breaking"?>"><?php echo $i + 1 ?></a>
-                    <?php
-                }
+                    pages($pagedArray,"breaking");
                 ?>
                 </div>
                 <?php
                 if (isset($_GET["breaking"])) {
                     foreach($pagedArray[$_GET["breaking"]] as $item){
-                        ?>
-                        <article>
-                            <h3><?php echo $item[0]; ?></h3>
-                            <p><?php  echo $item[1]; ?></p>
-                            <a target="_blank" href="<?php echo $item[2]; ?>">Link</a>
-                            <img src="<?php  echo $item[3] ?>" alt="<?php echo $item[0]; ?>"/>
-                        </article>
-                        <?php
-                    } 
-
-                } else {
-                  
+                        get($item);
+                    }
+                } else { 
                     foreach($pagedArray[0] as $item){
-                        ?>
-                        <article>
-                            <h3><?php echo $item[0]; ?></h3>
-                            <p><?php  echo $item[1]; ?></p>
-                            <a target="_blank" href="<?php echo $item[2]; ?>">Link</a>
-                            <img src="<?php  echo $item[3] ?>" alt="<?php echo $item[0]; ?>"/>
-                        </article>
-                        <?php
-                    }   
+                        get($item);
+                    }
                 }
+                ?>
+                <div>
+                <?php
+                    pages($pagedArray,"breaking");
+                ?>
+                </div>
+                <?php
             ?>
-      </section>
+        </section>
         <section id="international"> 
             <h2>International</h2>
-            <?php
-            $rssUrl = "https://thewest.com.au/news/world/rss";
-            $rssFeed = simplexml_load_file($rssUrl);
-            if(!empty($rssFeed)){
-                foreach($rssFeed->channel->item as $item){
-                    ?>
-                    <article>
-                        <h3><?php echo $item->title; ?></h3>
-                        <p><?php  echo $item->description; ?></p>
-                        <a target="_blank" href="<?php echo $item->link; ?>">Link</a>
-                        <img src="<?php  echo $item->children('media', True)->content->attributes() ?>" alt="<?php echo $item->title; ?>"/>
-                    </article>
-                    <?php
+             <?php
+                $rssUrl = "https://thewest.com.au/news/world/rss";
+                $rssFeed = simplexml_load_file($rssUrl);
+                $pagedArray = array_chunk(rss($rssFeed), 10, true);        
+                ?>
+                <div>
+                <?php
+                    pages($pagedArray,"international");
+                ?>
+                </div>
+                <?php
+                if (isset($_GET["international"])) {
+                    foreach($pagedArray[$_GET["international"]] as $item){
+                        get($item);
+                    }
+                } else { 
+                    foreach($pagedArray[0] as $item){
+                        get($item);
+                    }
                 }
-            } 
-            ?>  
+                ?>
+                <div>
+                <?php
+                       pages($pagedArray,"international");
+                ?>
+                </div>
+                <?php
+            ?>
         </section>
         <section id="sport">
             <h2>Sport</h2>
-            <?php
-            $rssUrl = "https://thewest.com.au/sport/rss";
-            $rssFeed = simplexml_load_file($rssUrl);
-            if(!empty($rssFeed)){
-                foreach($rssFeed->channel->item as $item){
-                    ?>
-                    <article>
-                        <h3><?php echo $item->title; ?></h3>
-                        <p><?php  echo $item->description; ?></p>
-                        <a target="_blank" href="<?php echo $item->link; ?>">Link</a>
-                        <img src="<?php  echo $item->children('media', True)->content->attributes() ?>" alt="<?php echo $item->title; ?>"/>
-                    </article>
-                    <?php
+             <?php
+                $rssUrl = "https://thewest.com.au/sport/rss";
+                $rssFeed = simplexml_load_file($rssUrl);
+                $pagedArray = array_chunk(rss($rssFeed), 10, true);        
+                ?>
+                <div>
+                <?php
+                    pages($pagedArray,"sport");
+                ?>
+                </div>
+                <?php
+                if (isset($_GET["sport"])) {
+                    foreach($pagedArray[$_GET["sport"]] as $item){
+                        get($item);
+                    }
+                } else { 
+                    foreach($pagedArray[0] as $item){
+                        get($item);
+                    }
                 }
-            } 
-            ?>  
+                ?>
+                <div>
+                <?php
+                       pages($pagedArray,"sport");
+                ?>
+                </div>
+                <?php
+            ?>
         </section>
         <section id="national">
             <h2>National</h2>
-            <?php
-            $rssUrl = "https://thewest.com.au/news/australia/rss";
-            $rssFeed = simplexml_load_file($rssUrl);
-            if(!empty($rssFeed)){
-                foreach($rssFeed->channel->item as $item){
-                    ?>
-                    <article>
-                        <h3><?php echo $item->title; ?></h3>
-                        <p><?php  echo $item->description; ?></p>
-                        <a target="_blank" href="<?php echo $item->link; ?>">Link</a>
-                        <img src="<?php  echo $item->children('media', True)->content->attributes() ?>" alt="<?php echo $item->title; ?>"/>
-                    </article>
-                    <?php
+              <?php
+                $rssUrl = "https://thewest.com.au/news/australia/rss";
+                $rssFeed = simplexml_load_file($rssUrl);
+                $pagedArray = array_chunk(rss($rssFeed), 10, true);        
+                ?>
+                <div>
+                <?php
+                    pages($pagedArray,"national");
+                ?>
+                </div>
+                <?php
+                if (isset($_GET["national"])) {
+                    foreach($pagedArray[$_GET["national"]] as $item){
+                        get($item);
+                    }
+                } else { 
+                    foreach($pagedArray[0] as $item){
+                        get($item);
+                    }
                 }
-            } 
+                ?>
+                <div>
+                <?php
+                       pages($pagedArray,"national");
+                ?>
+                </div>
+                <?php
             ?>  
         </section>
     </main>
