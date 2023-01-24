@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="author" content="D.C">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> News </title>
+    <title> News stories from the west</title>
     <link href="css/app.css" rel="stylesheet" type="text/css">
 </head>
 
