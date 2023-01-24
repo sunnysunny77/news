@@ -1,0 +1,187 @@
+@import "variables";
+
+body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    overflow-x: hidden;
+}
+
+nav {
+    height: 100vh;
+    display: flex;
+    width: 40px;
+    position: sticky;
+    z-index: 999;
+    top: 0;
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: inherit;
+        li {
+            height: 50%;
+            width: inherit;
+            display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+#left {
+    float: left;
+    li:nth-child(even) {
+        background-color: $c4;
+        a {
+            color: $c3;
+        }
+    }
+    li:nth-child(odd) {
+        background-color: $c3;
+        a {
+            color: $c4;
+        }
+    }
+    li a {
+        display: block;
+        transform: rotate(-90deg);
+    }
+}
+
+#right {
+    float: right;
+    li:nth-child(even) {
+        background-color: $c3;
+        a {
+            color: $c4;
+        }
+    }
+    li:nth-child(odd) {
+        background-color: $c4;
+        a {
+            color: $c3;
+        }
+    }
+    li a {
+        display: block;
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes left {
+    from {
+        margin-left: -40px;
+    }
+    to {
+        margin-left: 0px;
+    }
+}
+
+.left {
+    animation-name: left;
+    animation-duration: 1s;
+}
+
+@keyframes noneLeft {
+    from {
+        margin-left: 0px;
+    }
+    to {
+        margin-left: -40px;
+    }
+}
+
+.noneLeft {
+    animation-name: noneLeft;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes right {
+    from {
+        margin-right: -40px;
+    }
+    to {
+        margin-right: 0px;
+    }
+}
+
+.right {
+    animation-name: right;
+    animation-duration: 1s;
+}
+
+@keyframes noneRight {
+    from {
+        margin-right: 0px;
+    }
+    to {
+        margin-right: -40px;
+    }
+}
+
+.noneRight {
+    animation-name: noneRight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+header {
+    background-image: url("../images/header.jpg");
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    h1 {
+        margin: 0;
+        padding: 20px 0 0 calc(10% + 40px);
+        color: $c1;
+        font-size: 3em;
+        letter-spacing: 0.5em;
+        max-width: 45%;
+        @media only Screen and (max-width: 992px) {
+            font-size: 1em;
+        }
+        span {
+            color: $c2;
+            display: block;
+        }
+    }
+}
+
+main {
+    position: relative;
+    section {
+        background-color: $c5; 
+        display: flex;
+        justify-content: space-around;  
+        align-items: center;
+        flex-wrap: wrap;
+        min-height: 100vh;
+        h2 {
+            width: 100%;
+            margin-left: calc(5% + 40px)
+        }
+        div {
+            width: 100%;
+            text-align: center;
+        }
+        article {
+        width: 40%;
+            a {
+                display: block;
+                &:hover, &:focus {
+                    color: $c1;
+                }
+            }
+            img {
+                width:100%;
+            }
+        }
+    }
+}
+

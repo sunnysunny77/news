@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  font-family: Tahoma, sans-serif;
+  overflow-x: hidden;
+}
+
+nav {
+  height: 100vh;
+  display: flex;
+  width: 40px;
+  position: sticky;
+  z-index: 999;
+  top: 0;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: inherit;
+}
+nav ul li {
+  height: 50%;
+  width: inherit;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav ul li a {
+  text-decoration: none;
+}
+
+#left {
+  float: left;
+}
+#left li:nth-child(even) {
+  background-color: black;
+}
+#left li:nth-child(even) a {
+  color: white;
+}
+#left li:nth-child(odd) {
+  background-color: white;
+}
+#left li:nth-child(odd) a {
+  color: black;
+}
+#left li a {
+  display: block;
+  transform: rotate(-90deg);
+}
+
+#right {
+  float: right;
+}
+#right li:nth-child(even) {
+  background-color: white;
+}
+#right li:nth-child(even) a {
+  color: black;
+}
+#right li:nth-child(odd) {
+  background-color: black;
+}
+#right li:nth-child(odd) a {
+  color: white;
+}
+#right li a {
+  display: block;
+  transform: rotate(90deg);
+}
+
+@keyframes left {
+  from {
+    margin-left: -40px;
+  }
+  to {
+    margin-left: 0px;
+  }
+}
+.left {
+  animation-name: left;
+  animation-duration: 1s;
+}
+
+@keyframes noneLeft {
+  from {
+    margin-left: 0px;
+  }
+  to {
+    margin-left: -40px;
+  }
+}
+.noneLeft {
+  animation-name: noneLeft;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes right {
+  from {
+    margin-right: -40px;
+  }
+  to {
+    margin-right: 0px;
+  }
+}
+.right {
+  animation-name: right;
+  animation-duration: 1s;
+}
+
+@keyframes noneRight {
+  from {
+    margin-right: 0px;
+  }
+  to {
+    margin-right: -40px;
+  }
+}
+.noneRight {
+  animation-name: noneRight;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+header {
+  background-image: url("../images/header.jpg");
+  height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+header h1 {
+  margin: 0;
+  padding: 20px 0 0 calc(10% + 40px);
+  color: #ea1e48;
+  font-size: 3em;
+  letter-spacing: 0.5em;
+  max-width: 45%;
+}
+@media only Screen and (max-width: 992px) {
+  header h1 {
+    font-size: 1em;
+  }
+}
+header h1 span {
+  color: tomato;
+  display: block;
+}
+
+main {
+  position: relative;
+}
+main section {
+  background-color: #ebebeb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+main section h2 {
+  width: 100%;
+  margin-left: calc(5% + 40px);
+}
+main section div {
+  width: 100%;
+  text-align: center;
+}
+main section article {
+  width: 40%;
+}
+main section article a {
+  display: block;
+}
+main section article a:hover, main section article a:focus {
+  color: #ea1e48;
+}
+main section article img {
+  width: 100%;
+}
+
+/*# sourceMappingURL=app.css.map */
