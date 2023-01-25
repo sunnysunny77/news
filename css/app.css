@@ -1,22 +1,44 @@
+@charset "UTF-8";
 body {
   margin: 0;
   font-family: Tahoma, sans-serif;
-  position: relative;
+}
+
+.disp {
+  display: block;
+}
+
+.color {
+  color: black;
 }
 
 nav {
-  display: flex;
-  width: 40px;
-  position: sticky;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
   top: 0;
+  right: 0;
   bottom: 0;
+  left: 0;
   z-index: 999;
+  color: #ea1e48;
+  font-size: 20px;
+}
+nav::after {
+  content: "☰";
+  position: absolute;
+  left: 10px;
+  display: block;
+  width: 10px;
+  top: 10px;
+  height: 0;
 }
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: inherit;
+  width: 40px;
+  display: none;
 }
 nav ul li {
   height: 50vh;
@@ -28,54 +50,72 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
 }
-
-#left {
+nav ul:nth-child(1) {
   float: left;
-  left: 0;
+  position: relative;
 }
-#left li:nth-child(even) {
+nav ul:nth-child(1) li:nth-child(even) {
   background-color: black;
 }
-#left li:nth-child(even) a {
+nav ul:nth-child(1) li:nth-child(even) a {
   color: white;
 }
-#left li:nth-child(odd) {
+nav ul:nth-child(1) li:nth-child(odd) {
   background-color: white;
 }
-#left li:nth-child(odd) a {
+nav ul:nth-child(1) li:nth-child(odd) a {
   color: black;
 }
-#left li a {
+nav ul:nth-child(1) li a {
   display: block;
   transform: rotate(-90deg);
 }
-
-#right {
+nav ul:nth-child(2) {
   float: right;
-  right: 0;
 }
-#right li:nth-child(even) {
+nav ul:nth-child(2) li:nth-child(even) {
   background-color: white;
 }
-#right li:nth-child(even) a {
+nav ul:nth-child(2) li:nth-child(even) a {
   color: black;
 }
-#right li:nth-child(odd) {
+nav ul:nth-child(2) li:nth-child(odd) {
   background-color: black;
 }
-#right li:nth-child(odd) a {
+nav ul:nth-child(2) li:nth-child(odd) a {
   color: white;
 }
-#right li a {
+nav ul:nth-child(2) li a {
   display: block;
   transform: rotate(90deg);
 }
 
 header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+header .bg-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+header .bg {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100vh;
   background-image: url("../images/header.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center top;
+  transform: translateZ(0);
+  will-change: transform;
 }
 header h1 {
   margin: 0;
@@ -84,6 +124,8 @@ header h1 {
   font-size: 3em;
   letter-spacing: 0.5em;
   max-width: 45%;
+  position: absolute;
+  z-index: 998;
 }
 @media only Screen and (max-width: 1200px) {
   header h1 {
@@ -96,8 +138,10 @@ header h1 span {
 }
 
 main {
+  width: calc(100% - 80px);
+  margin: auto;
   position: relative;
-  z-index: 998;
+  z-index: 999;
 }
 main section {
   background-color: #ebebeb;
@@ -106,7 +150,6 @@ main section {
   align-items: center;
   flex-wrap: wrap;
   min-height: 100vh;
-  padding: 0 40px;
 }
 main section:nth-child(odd) {
   background-color: white;
@@ -141,7 +184,7 @@ main section article {
 }
 @media only Screen and (max-width: 1200px) {
   main section article {
-    width: 75%;
+    width: 100%;
     min-height: unset;
   }
 }
@@ -163,7 +206,7 @@ main section article a {
 }
 main section article a span {
   position: absolute;
-  z-index: 999;
+  z-index: 998;
   display: block;
   background-color: rgba(235, 235, 235, 0.75);
   color: black;

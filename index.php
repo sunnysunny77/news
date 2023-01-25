@@ -10,20 +10,22 @@
 </head>
 
 <body>
-    <nav id="left">
+    <nav>
         <ul>
             <li><a href="#breaking">Breaking</a></li>
             <li><a href="#international">International</a></li>
         </ul>
-    </nav>
-    <nav id="right">
         <ul>
             <li><a href="#sport">Sport</a></li>
             <li><a href="#national">National</a></li>
         </ul>
-    </nav> 
+    </nav>
     <header>
-        <h1><span>NEWS</span></br>STORIES FROM THE WEST</h1>
+      
+        <div class="bg-wrap">
+        
+            <div class="bg"> <h1><span>NEWS</span></br>STORIES FROM THE WEST</h1></div>
+        </div> 
     </header>
     <main>
     <section id="breaking">
@@ -188,6 +190,7 @@
         </section>
     </main>
     <footer></footer>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

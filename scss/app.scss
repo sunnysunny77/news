@@ -3,21 +3,42 @@
 body {
     margin: 0;
     font-family: Tahoma, sans-serif;
-    position: relative;
+}
+
+.disp {
+    display: block;
+}
+
+.color {
+    color: $c4;
 }
 
 nav {
-    display: flex;
-    width: 40px;
-    position: sticky;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
     top: 0;
+    right: 0;
     bottom: 0;
+    left: 0;
     z-index: 999;
+    color: $c1;
+    font-size: 20px;
+    &::after {
+        content: "☰";
+        position: absolute;
+        left: 10px;
+        display: block;
+        width: 10px;
+        top: 10px;
+        height: 0;
+    }
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
-        width: inherit;
+        width: 40px;
+        display: none;
         li {
             height: 50vh;
             width: inherit;
@@ -28,56 +49,75 @@ nav {
                 text-decoration: none;
             }
         }
-    }
-}
-
-#left {
-    float: left;
-    left: 0;
-    li:nth-child(even) {
-        background-color: $c4;
-        a {
-            color: $c3;
+        &:nth-child(1) {
+            float: left;
+            position: relative;
+            li:nth-child(even) {
+                background-color: $c4;
+                a {
+                    color: $c3;
+                }
+            }
+            li:nth-child(odd) {
+                background-color: $c3;
+                a {
+                    color: $c4;
+                }
+            }
+            li a {
+                display: block;
+                transform: rotate(-90deg);
+            }
         }
-    }
-    li:nth-child(odd) {
-        background-color: $c3;
-        a {
-            color: $c4;
+        &:nth-child(2) {
+            float: right;
+            li:nth-child(even) {
+                background-color: $c3;
+                a {
+                    color: $c4;
+                }
+            }
+            li:nth-child(odd) {
+                background-color: $c4;
+                a {
+                    color: $c3;
+                }
+            }
+            li a {
+                display: block;
+                transform: rotate(90deg);
+            }
         }
-    }
-    li a {
-        display: block;
-        transform: rotate(-90deg);
-    }
-}
-
-#right {
-    float: right;
-    right: 0;
-    li:nth-child(even) {
-        background-color: $c3;
-        a {
-            color: $c4;
-        }
-    }
-    li:nth-child(odd) {
-        background-color: $c4;
-        a {
-            color: $c3;
-        }
-    }
-    li a {
-        display: block;
-        transform: rotate(90deg);
     }
 }
 
 header {
+    width: 100%;
     height: 100vh;
-    background-image: url("../images/header.jpg");
-    background-size: cover;
-    background-position: center;
+    position: relative;
+    
+    .bg-wrap {
+        clip: rect(0, auto, auto, 0);
+        position: absolute;
+        z-index: 998;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+    }
+    .bg {
+        position: fixed;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-image: url("../images/header.jpg");
+        background-size: cover;
+        background-position: center top;
+        transform: translateZ(0);
+        will-change: transform;
+    }
     h1 {
         margin: 0;
         padding: 20px 0 0 calc(10% + 40px);
@@ -85,6 +125,8 @@ header {
         font-size: 3em;
         letter-spacing: 0.5em;
         max-width: 45%;
+        position: absolute;
+        z-index: 998;
         @media only Screen and (max-width: 1200px) {
             font-size: 1em;
         }
@@ -96,8 +138,10 @@ header {
 }
 
 main {
+    width: calc(100% - 80px);
+    margin: auto;
     position: relative;
-    z-index: 998;
+    z-index: 999;
     section {
         background-color: $c5;
         display: flex;
@@ -105,7 +149,6 @@ main {
         align-items: center;
         flex-wrap: wrap;
         min-height: 100vh;
-        padding: 0 40px;
         &:nth-child(odd) {
             background-color: $c3;
         }
@@ -137,7 +180,7 @@ main {
             border: 2px solid $c4;
             border-radius: 25px;
             @media only Screen and (max-width: 1200px) {
-                width: 75%;
+                width: 100%;
                 min-height: unset;
             }
             a {
@@ -155,7 +198,7 @@ main {
                 }
                 span {
                     position: absolute;
-                    z-index: 999;
+                    z-index: 998;
                     display: block;
                     background-color: rgba($c5, 0.75);
                     color: $c4;
