@@ -168,7 +168,6 @@ main {
     margin: auto;
     position: relative;
     z-index: 999;
-
     section {
         background-color: $c5;
         display: flex;
@@ -187,6 +186,7 @@ main {
             width: 100%;
             margin-left: 10px;
             margin-bottom: 0;
+            font-size: large;
         }
         div {
             width: 100%;
