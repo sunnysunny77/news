@@ -74,62 +74,6 @@ nav ul li a {
   transform: rotate(90deg);
 }
 
-@keyframes left {
-  from {
-    transform: translateX(-40px);
-  }
-  to {
-    transform: translateX(0px);
-  }
-}
-.left {
-  animation-name: left;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes noneLeft {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-40px);
-  }
-}
-.noneLeft {
-  animation-name: noneLeft;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes right {
-  from {
-    transform: translateX(40px);
-  }
-  to {
-    transform: translateX(0px);
-  }
-}
-.right {
-  animation-name: right;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes noneRight {
-  from {
-    transform: translateX(0px);
-  }
-  to {
-    transform: translateX(40px);
-  }
-}
-.noneRight {
-  animation-name: noneRight;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
 header {
   width: 100%;
   height: 100vh;
