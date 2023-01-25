@@ -21,9 +21,7 @@
         </ul>
     </nav>
     <header>
-      
-        <div class="bg-wrap">
-        
+        <div class="bg-wrap">      
             <div class="bg"> <h1><span>NEWS</span></br>STORIES FROM THE WEST</h1></div>
         </div> 
     </header>
@@ -40,6 +38,12 @@
                             $current = "current";
                         } else {
                             $current = "";
+                        }
+                        if ($i == 0) {
+                            $next = isset($_GET["$type"]) ? $_GET["$type"] + 1 : $i + 1;
+                            ?>
+                            <a href="<?php echo $_SERVER['PHP_SELF'] . "?$type=" . $next . "#$type"?>">Next..</a>
+                            <?php
                         }
                         ?>
                             <a class="<?php echo $current ?>" href="<?php echo $_SERVER['PHP_SELF'] . "?$type=" . $i  ."#$type"?>"><?php echo $i + 1 ?></a>

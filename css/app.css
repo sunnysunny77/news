@@ -2,6 +2,7 @@
 body {
   margin: 0;
   font-family: Tahoma, sans-serif;
+  background-color: #ebebeb;
 }
 
 @keyframes menu {
@@ -16,7 +17,6 @@ body {
   animation-name: menu;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  display: block;
 }
 
 @keyframes menuout {
@@ -25,14 +25,12 @@ body {
   }
   to {
     margin: 0 -40px;
-    display: none;
   }
 }
 .menuout {
   animation-name: menuout;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  display: block;
 }
 
 .color {
@@ -51,7 +49,7 @@ nav {
   color: #ea1e48;
   font-size: 20px;
 }
-nav::after {
+nav::before {
   content: "☰";
   position: absolute;
   left: 0;
@@ -61,13 +59,13 @@ nav::after {
   height: 30px;
   background-color: white;
   text-align: center;
+  z-index: 999;
 }
 nav ul {
   list-style-type: none;
-  margin: 0;
+  margin: 0 -40px;
   padding: 0;
   width: 40px;
-  display: none;
 }
 nav ul li {
   height: 50vh;
@@ -81,7 +79,6 @@ nav ul li a {
 }
 nav ul:nth-child(1) {
   float: left;
-  position: relative;
 }
 nav ul:nth-child(1) li:nth-child(even) {
   background-color: black;
@@ -196,6 +193,10 @@ main section div {
   width: 100%;
   text-align: center;
   margin: 5% auto;
+}
+main section div a {
+  padding: 0 10px;
+  text-decoration: none;
 }
 main section div .current {
   color: #ea1e48;
