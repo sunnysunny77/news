@@ -3,20 +3,24 @@ let oldScrollY = window.scrollY;
 
 const left = document.querySelectorAll("nav")[0];
 const right = document.querySelectorAll("nav")[1];
+const head = document.querySelector("header");
 
 function nav() {
+  
+    if (oldScrollY < window.scrollY &&  window.scrollY > head.offsetHeight) {
+      
+        left.classList.remove("left");
+        right.classList.remove("right");   
+        left.classList.add("noneLeft");
+        right.classList.add("noneRight");
 
-    if (oldScrollY > window.scrollY || window.scrollY < document.querySelector("header").offsetHeight) {
+    } else if (oldScrollY > window.scrollY &&  window.scrollY > head.offsetHeight){
+        
         left.classList.add("left");
         right.classList.add("right");
         left.classList.remove("noneLeft");
         right.classList.remove("noneRight");
-    } else {
-        left.classList.remove("left");
-        right.classList.remove("right");
-        left.classList.add("noneLeft");
-        right.classList.add("noneRight");
-    }
+    } 
     oldScrollY = window.scrollY;
 }
 

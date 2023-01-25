@@ -22,9 +22,8 @@ nav ul {
   width: inherit;
 }
 nav ul li {
-  height: 50%;
+  height: 50vh;
   width: inherit;
-  display: inline-block;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,6 +85,7 @@ nav ul li a {
 .left {
   animation-name: left;
   animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes noneLeft {
@@ -113,6 +113,7 @@ nav ul li a {
 .right {
   animation-name: right;
   animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes noneRight {
@@ -163,7 +164,7 @@ header h1 {
   letter-spacing: 0.5em;
   max-width: 45%;
   position: absolute;
-  z-index: 999;
+  z-index: 998;
 }
 @media only Screen and (max-width: 1200px) {
   header h1 {

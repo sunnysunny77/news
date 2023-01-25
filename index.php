@@ -11,13 +11,13 @@
 
 <body>
  
-        <nav id="left" class="overlay left">
+        <nav id="left" class="overlay">
             <ul>
                 <li><a href="#breaking">Breaking</a></li>
                 <li><a href="#international">International</a></li>
             </ul>
         </nav>
-        <nav id="right" class="overlay right">
+        <nav id="right" class="overlay">
             <ul>
                 <li><a href="#sport">Sport</a></li>
                 <li><a href="#national">National</a></li>
