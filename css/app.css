@@ -198,6 +198,7 @@ main section div {
 main section div a {
   padding: 0 10px;
   text-decoration: none;
+  font-size: smaller;
 }
 main section div .current {
   color: #ea1e48;
