@@ -1,9 +1,24 @@
-
+const ul0 = document.querySelectorAll("ul")[0];
+const ul1 = document.querySelectorAll("ul")[1];
+const nav = document.querySelector("nav");
 
 function callback () {
-    document.querySelectorAll("ul")[0].classList.toggle("disp");
-    document.querySelectorAll("ul")[1].classList.toggle("disp");
-    document.querySelector("nav").classList.toggle("color");
+  
+    nav.classList.toggle("color")
+
+    if(nav.classList.contains("color")) {
+
+        ul0.classList.add("disp");
+        ul1.classList.add("disp");
+        ul0.classList.remove("menuout");
+        ul1.classList.remove("menuout");
+      } else if (!nav.classList.contains("color")) {
+    
+        ul0.classList.remove("disp");
+        ul1.classList.remove("disp");
+        ul0.classList.add("menuout");
+        ul1.classList.add("menuout");
+      } 
 }
 
 function events (obj,typ,callback,opts) {
@@ -13,5 +28,5 @@ function events (obj,typ,callback,opts) {
 }
 
 window.onload = function () {
-events(document.querySelector("nav"),"click",callback,null);
+events(nav,"click",callback,null);
 }

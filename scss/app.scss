@@ -15,10 +15,26 @@ body {
 }
 
 .disp {
-    display: block;
     animation-name: menu;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    display: block;
+}
+
+@keyframes menuout {
+    from {
+        margin: 0;   
+    }
+    to {
+        margin: 0 -40px;
+        display: none;
+    }
+}
+.menuout {
+    animation-name: menuout;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    display: block;
 }
 
 .color {
@@ -44,7 +60,7 @@ nav {
         width: 40px;
         top: 0;
         height: 30px;
-        background-color: white;
+        background-color: $c3;
         text-align: center;
     }
     ul {
