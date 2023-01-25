@@ -264,3 +264,20 @@ main {
         }
     }
 }
+
+footer {
+    background-color: rgba($c4,0.75);
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 999;
+    a {
+        color: $c3;
+        &:hover,
+        &:focus {
+            color: $c5; 
+        }
+    }
+}

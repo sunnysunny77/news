@@ -193,7 +193,9 @@
             ?>  
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <a href="https://thewest.com.au/rss-feeds">West Australian Newspapers Limited RSS</a>
+    </footer>
     <script src="js/app.js"></script>
 </body>
 

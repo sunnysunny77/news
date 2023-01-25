@@ -272,4 +272,20 @@ main section article img {
   margin: auto;
 }
 
+footer {
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+}
+footer a {
+  color: white;
+}
+footer a:hover, footer a:focus {
+  color: #ebebeb;
+}
+
 /*# sourceMappingURL=app.css.map */
