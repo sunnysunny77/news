@@ -4,8 +4,19 @@ body {
   font-family: Tahoma, sans-serif;
 }
 
+@keyframes menu {
+  from {
+    margin: 0 -40px;
+  }
+  to {
+    margin: 0;
+  }
+}
 .disp {
   display: block;
+  animation-name: menu;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 .color {
@@ -27,11 +38,13 @@ nav {
 nav::after {
   content: "☰";
   position: absolute;
-  left: 10px;
+  left: 0;
   display: block;
-  width: 10px;
-  top: 10px;
-  height: 0;
+  width: 40px;
+  top: 0;
+  height: 30px;
+  background-color: white;
+  text-align: center;
 }
 nav ul {
   list-style-type: none;
