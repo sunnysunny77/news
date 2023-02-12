@@ -179,7 +179,6 @@ main section {
   background-color: #ebebeb;
   display: flex;
   justify-content: space-around;
-  align-items: center;
   flex-wrap: wrap;
   min-height: 100vh;
 }
@@ -267,13 +266,7 @@ main section article a:focus img {
 }
 main section article h3,
 main section article p {
-  margin: 0;
-}
-@media only Screen and (max-width: 1200px) {
-  main section article h3,
-  main section article p {
-    margin-bottom: 5%;
-  }
+  margin: 0 0 5% 0;
 }
 main section article img {
   width: 100%;

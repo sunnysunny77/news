@@ -173,7 +173,6 @@ main {
         background-color: $c5;
         display: flex;
         justify-content: space-around;
-        align-items: center;
         flex-wrap: wrap;
         min-height: 100vh;
         &:nth-child(odd) {
@@ -255,10 +254,8 @@ main {
             }
             h3,
             p {
-                margin: 0;
-                @media only Screen and (max-width: 1200px) {
-                    margin-bottom: 5%;
-                }
+                margin: 0 0 5% 0;
+            
             }
             img {
                 width: 100%;
