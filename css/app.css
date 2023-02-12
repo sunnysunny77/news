@@ -155,6 +155,7 @@ header h1 {
   font-size: 3em;
   letter-spacing: 0.5em;
   max-width: 45%;
+  font-family: Tahoma, sans-serif;
   position: absolute;
   z-index: 998;
 }
@@ -196,9 +197,10 @@ main section h2 {
   font-size: large;
 }
 main section div {
-  width: 100%;
+  max-width: 165px;
   text-align: center;
-  margin: 5% auto;
+  margin: 2.5% auto;
+  padding: 0 calc(50% - 82.5px);
 }
 main section div a {
   padding: 0 10px;
@@ -207,6 +209,9 @@ main section div a {
 }
 main section div .current {
   color: #ea1e48;
+}
+main section div a:nth-child(1) {
+  display: block;
 }
 main section article {
   width: 38%;
@@ -247,9 +252,9 @@ main section article a span {
   display: block;
   background-color: rgba(235, 235, 235, 0.75);
   color: black;
-  width: 120px;
-  border-radius: 15px;
-  border: 1px solid black;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid black;
 }
 main section article a:hover span,
 main section article a:focus span {

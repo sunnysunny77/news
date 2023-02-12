@@ -151,6 +151,7 @@ header {
         font-size: 3em;
         letter-spacing: 0.5em;
         max-width: 45%;
+        font-family: Tahoma, sans-serif;
         position: absolute;
         z-index: 998;
         @media only Screen and (max-width: 1200px) {
@@ -189,9 +190,10 @@ main {
             font-size: large;
         }
         div {
-            width: 100%;
+            max-width: 165px;
             text-align: center;
-            margin: 5% auto;
+            margin: 2.5% auto;
+            padding: 0 calc(50% - 82.5px);
             a {
                 padding: 0 10px;
                 text-decoration: none;
@@ -199,6 +201,9 @@ main {
             }
             .current {
                 color: $c1;
+            }
+            a:nth-child(1) {
+                display: block;
             }
         }
         article {
@@ -234,9 +239,9 @@ main {
                     display: block;
                     background-color: rgba($c5, 0.75);
                     color: $c4;
-                    width: 120px;
-                    border-radius: 15px;
-                    border: 1px solid $c4;
+                    width: 100%;
+                    bottom: 0;
+                    border-top: 1px solid $c4;
                 }
             }
             a:hover span,
